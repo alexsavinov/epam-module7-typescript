@@ -66,6 +66,12 @@ function appendChildToBody(tagName: string, innerText: string = '') {
     document.body.appendChild(companyElement);
 }
 
+const img = document.createElement('img');
+img.src = 'https://img.uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/europe-flag-icon.svg';
+img.height = 100;
+img.width = 100;
+document.body.appendChild(img);
+
 /* Create an object of class Company */
 const company = new Company();
 

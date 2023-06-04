@@ -79,6 +79,11 @@ function appendChildToBody(tagName, innerText) {
     }
     document.body.appendChild(companyElement);
 }
+var img = document.createElement('img');
+img.src = 'https://img.uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/europe-flag-icon.svg';
+img.height = 100;
+img.width = 100;
+document.body.appendChild(img);
 /* Create an object of class Company */
 var company = new Company();
 /* Create several objects Frontend and Backend employees with information about their names and projects */
