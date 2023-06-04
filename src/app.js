@@ -1,60 +1,41 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Employee = /** @class */ (function () {
-    function Employee(name, currentProject) {
+var Backend = /** @class */ (function () {
+    function Backend(name, currentProject) {
+        var _this = this;
+        this.toString = function () {
+            return "Backend (name: ".concat(_this.getName(), ", currentProject: ").concat(_this.getCurrentProject(), "))");
+        };
         this.name = name;
         this.currentProject = currentProject;
     }
-    Employee.prototype.getCurrentProject = function () {
+    Backend.prototype.getCurrentProject = function () {
         return this.currentProject;
     };
-    Employee.prototype.getName = function () {
+    Backend.prototype.getName = function () {
         return this.name;
     };
-    Employee.prototype.toString = function () {
-        return "(name: ".concat(this.getName(), ", currentProject: ").concat(this.getCurrentProject(), ")");
-    };
-    return Employee;
-}());
-var Backend = /** @class */ (function (_super) {
-    __extends(Backend, _super);
-    function Backend() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.toString = function () {
-            return "Backend ".concat(_super.prototype.toString.call(_this), ")");
-        };
-        return _this;
-    }
     return Backend;
-}(Employee));
-var Frontend = /** @class */ (function (_super) {
-    __extends(Frontend, _super);
-    function Frontend() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.toString = function () {
-            return "Frontend ".concat(_super.prototype.toString.call(_this));
+}());
+var Frontend = /** @class */ (function () {
+    function Frontend(name, currentProject) {
+        var _this = this;
+        this.toString = function () {
+            return "Frontend (name: ".concat(_this.getName(), ", currentProject: ").concat(_this.getCurrentProject(), "))");
         };
-        return _this;
+        this.name = name;
+        this.currentProject = currentProject;
     }
+    Frontend.prototype.getCurrentProject = function () {
+        return this.currentProject;
+    };
+    Frontend.prototype.getName = function () {
+        return this.name;
+    };
     return Frontend;
-}(Employee));
+}());
 var Company = /** @class */ (function () {
     function Company() {
         this.toString = function () {
-            return "EuropeCompany";
+            return "AmericanCompany";
         };
         this.employees = [];
     }
@@ -79,6 +60,11 @@ function appendChildToBody(tagName, innerText) {
     }
     document.body.appendChild(companyElement);
 }
+var img = document.createElement('img');
+img.src = 'https://img.uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/united-states-flag-icon.svg';
+img.height = 100;
+img.width = 100;
+document.body.appendChild(img);
 /* Create an object of class Company */
 var company = new Company();
 /* Create several objects Frontend and Backend employees with information about their names and projects */

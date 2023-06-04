@@ -1,21 +1,9 @@
-Create a **EuropeCompany** project.
+Create an **AmericanCompany** project based on the **EuropeCompany** project.
 
-a. Create the class **Employee**. This class should consist of:
+a. Let’s update our project.
 
-- **getCurrentProject** - method for getting the name of the current project;
-- **getName** – method for getting the name of the employee;
+b. Create **IEmployee** (with methods **getCurrentProject** and **getName**) interface instead of using **Employee** class.
+After that, implement this interface in **Frontend** and **Backend** classes.
 
-b. Create the class **Company**. This class should consist of:
-
-- an array of the Employees added to the company;
-- **add** - method to add a new Employee to the company;
-- **getProjectList** - method to get list of employee’s projects;
-- **getNameList** - method to get the list of names by added Employees.
-
-c. Create 2 additional classes (**Frontend**, **Backend**) which extend Employee class.
-
-d. Create an object of class Company.
-
-e. Create several objects Frontend and Backend employees with information about their names and projects and add them to
-the company,
-display the result of the getProjectList and getNameList methods in the console.
+c. Create several objects of **Frontend** and **Backend** employees with information about their names and projects and add them
+to the **Company**, display the result of the **getProjectList** and **getNameList** methods in the console.

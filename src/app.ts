@@ -1,6 +1,33 @@
-class Employee {
-    private readonly currentProject: string;
-    private readonly name: string;
+interface IEmployee {
+    currentProject: string;
+    name: string;
+
+    getCurrentProject(): string;
+    getName(): string;
+    // private readonly currentProject: string;
+    // private readonly name: string;
+    //
+    // constructor(name: string, currentProject: string) {
+    //     this.name = name;
+    //     this.currentProject = currentProject;
+    // }
+    //
+    // getCurrentProject(): string {
+    //     return this.currentProject;
+    // }
+    //
+    // getName(): string {
+    //     return this.name;
+    // }
+    //
+    // toString(): string {
+    //     return `(name: ${this.getName()}, currentProject: ${this.getCurrentProject()})`;
+    // }
+}
+
+class Backend implements IEmployee {
+    currentProject: string;
+    name: string;
 
     constructor(name: string, currentProject: string) {
         this.name = name;
@@ -15,31 +42,41 @@ class Employee {
         return this.name;
     }
 
-    toString(): string {
-        return `(name: ${this.getName()}, currentProject: ${this.getCurrentProject()})`;
+    public toString = (): string => {
+        return `Backend (name: ${this.getName()}, currentProject: ${this.getCurrentProject()}))`;
     }
 }
 
-class Backend extends Employee {
-    public toString = (): string => {
-        return `Backend ${super.toString()})`;
-    }
-}
+class Frontend implements IEmployee {
+    currentProject: string;
+    name: string;
 
-class Frontend extends Employee {
+    constructor(name: string, currentProject: string) {
+        this.name = name;
+        this.currentProject = currentProject;
+    }
+
+    getCurrentProject(): string {
+        return this.currentProject;
+    }
+
+    getName(): string {
+        return this.name;
+    }
+
     public toString = (): string => {
-        return `Frontend ${super.toString()}`;
+        return `Frontend (name: ${this.getName()}, currentProject: ${this.getCurrentProject()}))`;
     }
 }
 
 class Company {
-    private readonly employees: Employee[];
+    private readonly employees: IEmployee[];
 
     constructor() {
         this.employees = [];
     }
 
-    add(employee: Employee) {
+    add(employee: IEmployee) {
         this.employees.push(employee);
     }
 
@@ -65,6 +102,12 @@ function appendChildToBody(tagName: string, innerText: string = '') {
     }
     document.body.appendChild(companyElement);
 }
+
+const img = document.createElement('img');
+img.src = 'https://img.uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/united-states-flag-icon.svg';
+img.height = 100;
+img.width = 100;
+document.body.appendChild(img);
 
 /* Create an object of class Company */
 const company = new Company();
