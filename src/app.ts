@@ -54,7 +54,7 @@ class Company {
     }
 
     public toString = (): string => {
-        return "EuropeCompany";
+        return "BritishCompany";
     }
 }
 
