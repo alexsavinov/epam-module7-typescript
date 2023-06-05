@@ -16,19 +16,7 @@ class Employee {
     }
 
     toString(): string {
-        return `(name: ${this.getName()}, currentProject: ${this.getCurrentProject()})`;
-    }
-}
-
-class Backend extends Employee {
-    public toString = (): string => {
-        return `Backend ${super.toString()})`;
-    }
-}
-
-class Frontend extends Employee {
-    public toString = (): string => {
-        return `Frontend ${super.toString()}`;
+        return `Employee (name: ${this.getName()}, currentProject: ${this.getCurrentProject()})`;
     }
 }
 
@@ -58,11 +46,15 @@ class CompanyLocationArray implements ILocation {
     getPerson(index: number): Employee {
         return this.persons[index];
     }
+
+    toString(): string {
+        return "CompanyLocationArray";
+    }
 }
 
 class CompanyLocationLocalStorage implements ILocation {
     constructor() {
-        this.setPersons(new Array());
+        this.setPersons(new Array() as Employee[]);
     }
 
     addPerson(person: Employee): void {
@@ -85,6 +77,10 @@ class CompanyLocationLocalStorage implements ILocation {
 
     setPersons(persons: Employee[]): void {
         localStorage.setItem('persons', JSON.stringify(persons));
+    }
+
+    toString(): string {
+        return "CompanyLocationLocalStorage";
     }
 }
 
@@ -112,7 +108,7 @@ class Company {
     }
 
     public toString = (): string => {
-        return "BritishCompany";
+        return `BritishCompany (location: ${this.location})`;
     }
 }
 
@@ -133,7 +129,7 @@ document.body.appendChild(img);
 const location1 = new CompanyLocationArray();
 const location2 = new CompanyLocationLocalStorage();
 
-/* Create an object of class Company */
+/* Create several Companies with different locations.*/
 const company1 = new Company(location1);
 const company2 = new Company(location2);
 
@@ -143,16 +139,16 @@ const employee2 = new Employee("employee2", "Project #2");
 const employee3 = new Employee("employee3", "Project #3");
 const employee4 = new Employee("employee4", "Project #2");
 
-/* And add them to the company */
+/* Add several employees to each company.*/
 company1.add(employee1);
 company1.add(employee2);
 company1.add(employee3);
-company1.add(employee4);
 
 location1.addPerson(employee1)
-location2.addPerson(employee2)
 
-company2.add(employee1);
+location2.addPerson(employee2)
+location2.addPerson(employee3)
+
 company2.add(employee2);
 company2.add(employee3);
 company2.add(employee4);
@@ -160,11 +156,21 @@ company2.add(employee4);
 /*  Display the result of the getProjectList and getNameList methods in the console. */
 console.log(company1.getProjectList());
 console.log(company1.getNameList());
+console.log(company2.getProjectList());
+console.log(company2.getNameList());
 
 appendChildToBody('h2', `${company1}`);
 appendChildToBody('h3', `Project list: ${company1.getProjectList().join(', ')}`);
 appendChildToBody('h3', `Name list: ${company1.getNameList().join(', ')}`);
+appendChildToBody('h3', `location1 getCount: ${location1.getCount()}`);
 appendChildToBody('hr');
+
+appendChildToBody('h2', `${company2}`);
+appendChildToBody('h3', `Project list: ${company2.getProjectList().join(', ')}`);
+appendChildToBody('h3', `Name list: ${company2.getNameList().join(', ')}`);
+appendChildToBody('h3', `location2 getCount: ${location2.getCount()}`);
+appendChildToBody('hr');
+
 appendChildToBody('h2', 'Employees');
 appendChildToBody('h3', `${employee1}`);
 appendChildToBody('h3', `${employee2}`);
