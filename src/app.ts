@@ -67,7 +67,7 @@ function appendChildToBody(tagName: string, innerText: string = '') {
 }
 
 const img = document.createElement('img');
-img.src = 'https://img.uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/europe-flag-icon.svg';
+img.src = 'europe-flag-icon.svg';
 img.height = 100;
 img.width = 100;
 document.body.appendChild(img);
