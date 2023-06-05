@@ -61,7 +61,7 @@ function appendChildToBody(tagName, innerText) {
     document.body.appendChild(companyElement);
 }
 var img = document.createElement('img');
-img.src = 'https://img.uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/united-states-flag-icon.svg';
+img.src = 'united-states-flag-icon.svg';
 img.height = 100;
 img.width = 100;
 document.body.appendChild(img);

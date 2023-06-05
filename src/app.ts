@@ -104,7 +104,7 @@ function appendChildToBody(tagName: string, innerText: string = '') {
 }
 
 const img = document.createElement('img');
-img.src = 'https://img.uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/united-states-flag-icon.svg';
+img.src = 'united-states-flag-icon.svg';
 img.height = 100;
 img.width = 100;
 document.body.appendChild(img);
@@ -132,6 +132,7 @@ appendChildToBody('h2', `${company}`);
 appendChildToBody('h3', `Project list: ${company.getProjectList().join(', ')}`);
 appendChildToBody('h3', `Name list: ${company.getNameList().join(', ')}`);
 appendChildToBody('hr');
+
 appendChildToBody('h2', 'Employees');
 appendChildToBody('h3', `${employee1}`);
 appendChildToBody('h3', `${employee2}`);
